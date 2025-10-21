@@ -10,8 +10,8 @@ Nous allons créer un exemple d'application Spring Boot, y ajouter des tests et 
 
 * [Introduction](README.md)
 * [Étape 1 : Démarrage](etape-1-pour-commencer.md)
-* [Étape 2 : Explorer l'application](step-2-exploring-the-app.md)
-* [Étape 3 : Ajout de quelques tests](step-3-adding-some-tests.md)
+* [Étape 2 : Explorer l'application](etape-2-decouvrir-l-application.md)
+* [Étape 3 : Ajout de quelques tests](etape-3-ajouter-quelques-tests.md)
 * [Étape 4 : Votre première intégration de Testcontainers](step-4-your-first-testcontainers-integration.md)
 * [Étape 5 : Bonjour, est-ce que vous avez 200 ans ?](step-5-dude-r-u-200-ok.md)
 * [Étape 6 : Ajout de Redis](step-6-adding-redis.md)
