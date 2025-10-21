@@ -14,7 +14,7 @@ Nous allons créer un exemple d'application Spring Boot, y ajouter des tests et 
 * [Étape 3 : Ajout de quelques tests](etape-3-ajouter-quelques-tests.md)
 * [Étape 4 : Votre première intégration de Testcontainers](etape-4-votre-premier-testcontainers-integration.md)
 * [Étape 5 : Bonjour, est-ce que vous avez 200 ans ?](etape-5-hello-200-ok.md)
-* [Étape 6 : Ajout de Redis](step-6-adding-redis.md)
+* [Étape 6 : Ajout de Redis](etape-6-ajouter-redis.md)
 * [Étape 7 : tester l'API](step-7-test-the-api.md)
 * [Step 8: Local Development Environment with Testcontainers](step-8-local-development-environment.md)
 
