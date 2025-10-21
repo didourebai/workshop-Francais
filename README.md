@@ -19,7 +19,7 @@ Nous allons créer un exemple d'application Spring Boot, y ajouter des tests et 
 * [Step 8: Local Development Environment with Testcontainers](etape-8-environnement-local-developpement.md)
 
 Prochaines étapes que vous pouvez effectuer dans n’importe quel ordre en fonction de vos intérêts :
-* [Cas limites](step-extra-edge-cases.md)
+* [Cas limites](etape-extra-edge-cas.md)
 * [Stratégies d'initialisation des données](etape-7.7-donnes-strategies-init.md)
 * [Migration depuis Docker Compose](step-extra-migrating-from-docker-compose.md)
 * [Ingénierie du chaos](etape-extra-ingenierie-chaos.md)
