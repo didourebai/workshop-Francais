@@ -68,6 +68,6 @@ docker pull confluentinc/cp-kafka:7.5.0
 ```
 
 ### 
-[Next](step-2-exploring-the-app.md)
+[Suivant](step-2-exploring-the-app.md)
 
 
