@@ -16,9 +16,9 @@ Nous allons créer un exemple d'application Spring Boot, y ajouter des tests et 
 * [Étape 5 : Bonjour, est-ce que vous avez 200 ans ?](etape-5-hello-200-ok.md)
 * [Étape 6 : Ajout de Redis](etape-6-ajouter-redis.md)
 * [Étape 7 : tester l'API](etape-7-test-l-api.md)
-* [Step 8: Local Development Environment with Testcontainers](step-8-local-development-environment.md)
+* [Step 8: Local Development Environment with Testcontainers](etape-8-environnement-local-developpement.md)
 
-Next steps which you can do in any order based on the interest:
+Prochaines étapes que vous pouvez effectuer dans n’importe quel ordre en fonction de vos intérêts :
 * [Cas limites](step-extra-edge-cases.md)
 * [Stratégies d'initialisation des données](step-7.7-data-init-strategies.md)
 * [Migration depuis Docker Compose](step-extra-migrating-from-docker-compose.md)
