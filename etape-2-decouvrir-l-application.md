@@ -31,4 +31,4 @@ L'API est un contrôleur Spring Web REST \(`com.example.demo.api.RatingsControll
 * `POST /ratings { "talkId": ?, "value": 1-5 }` ajouter une note à une discussion
 * `GET /ratings?talkId=?` pour obtenir l'histogramme des notes de la conférence donnée
 ### 
-[Suivant](step-3-adding-some-tests.md)
+[Suivant](etape-3-ajouter-quelques-tests.md)
