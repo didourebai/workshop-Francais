@@ -2,27 +2,27 @@
 
 # Introduction
 
-This workshop will explain how to use Testcontainers \([https://www.testcontainers.com](https://www.testcontainers.com)\) in your Java applications.
+Cet atelier expliquera comment utiliser Testcontainers \([https://www.testcontainers.com](https://www.testcontainers.com)\) dans vos applications Java.
 
-We'll build a sample Spring Boot application, add tests to it, and explore Testcontainers for Java API you need to know to be effective with your tests. 
+Nous allons créer un exemple d'application Spring Boot, y ajouter des tests et explorer les conteneurs de test pour l'API Java que vous devez connaître pour être efficace avec vos tests.
 
-## Table of contents
+## Table des matières
 
 * [Introduction](README.md)
-* [Step 1: Getting Started](step-1-getting-started.md)
-* [Step 2: Exploring the app](step-2-exploring-the-app.md)
-* [Step 3: Adding some tests](step-3-adding-some-tests.md)
-* [Step 4: Your first Testcontainers integration](step-4-your-first-testcontainers-integration.md)
-* [Step 5: Hello, r u 200 OK?](step-5-dude-r-u-200-ok.md)
-* [Step 6: Adding Redis](step-6-adding-redis.md)
-* [Step 7: Test the API](step-7-test-the-api.md)
+* [[Étape 1 : Démarrage](step-1-getting-started.md)
+* [Étape 2 : Explorer l'application](step-2-exploring-the-app.md)
+* [Étape 3 : Ajout de quelques tests](step-3-adding-some-tests.md)
+* [Étape 4 : Votre première intégration de Testcontainers](step-4-your-first-testcontainers-integration.md)
+* [Étape 5 : Bonjour, est-ce que vous avez 200 ans ?](step-5-dude-r-u-200-ok.md)
+* [Étape 6 : Ajout de Redis](step-6-adding-redis.md)
+* [Étape 7 : tester l'API](step-7-test-the-api.md)
 * [Step 8: Local Development Environment with Testcontainers](step-8-local-development-environment.md)
 
 Next steps which you can do in any order based on the interest:
-* [Edge cases](step-extra-edge-cases.md)
-* [Data initialization strategies](step-7.7-data-init-strategies.md)
-* [Migrating from Docker Compose](step-extra-migrating-from-docker-compose.md)
-* [Chaos Engineering](step-extra-chaos-engineering.md)
-* [Custom Modules](step-extra-custom-modules.md)
+* [Cas limites](step-extra-edge-cases.md)
+* [Stratégies d'initialisation des données](step-7.7-data-init-strategies.md)
+* [Migration depuis Docker Compose](step-extra-migrating-from-docker-compose.md)
+* [Ingénierie du chaos](step-extra-chaos-engineering.md)
+* [Modules personnalisés](step-extra-custom-modules.md)
 
 
