@@ -20,9 +20,9 @@ Nous allons créer un exemple d'application Spring Boot, y ajouter des tests et 
 
 Prochaines étapes que vous pouvez effectuer dans n’importe quel ordre en fonction de vos intérêts :
 * [Cas limites](step-extra-edge-cases.md)
-* [Stratégies d'initialisation des données](step-7.7-data-init-strategies.md)
+* [Stratégies d'initialisation des données](etape-7.7-donnes-strategies-init.md)
 * [Migration depuis Docker Compose](step-extra-migrating-from-docker-compose.md)
-* [Ingénierie du chaos](step-extra-chaos-engineering.md)
+* [Ingénierie du chaos](etape-extra-ingenierie-chaos.md)
 * [Modules personnalisés](step-extra-custom-modules.md)
 
 
