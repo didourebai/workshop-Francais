@@ -9,7 +9,7 @@ Nous allons créer un exemple d'application Spring Boot, y ajouter des tests et 
 ## Table des matières
 
 * [Introduction](README.md)
-* [Étape 1 : Démarrage]([step-1-getting-started.md](https://github.com/didourebai/workshop-Francais/blob/main/etape-1-pour-commencer.md))
+* [Étape 1 : Démarrage](etape-1-pour-commencer.m)
 * [Étape 2 : Explorer l'application](step-2-exploring-the-app.md)
 * [Étape 3 : Ajout de quelques tests](step-3-adding-some-tests.md)
 * [Étape 4 : Votre première intégration de Testcontainers](step-4-your-first-testcontainers-integration.md)
