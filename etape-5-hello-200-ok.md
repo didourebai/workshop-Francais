@@ -1,16 +1,16 @@
-# Step 5: Hello, r u 200 OK?
+# Étape 5 : Bonjour, est-ce que vous avez 200 ans ?
 
-One of the great features of Spring Boot is the Actuator and its health endpoint. 
-It gives you an overview how healthy your app is.
+L’une des fonctionnalités intéressantes de Spring Boot est l’actionneur et son point de terminaison de santé.
+Il vous donne un aperçu de l'état de santé de votre application.
 
 The context starts, but what's about the health of the app?
 
-## Configure Rest Assured
+## Configurer Rest Assured
 
-To check the health endpoint of our app, we will use the [RestAssured](http://rest-assured.io/) library.
+Pour vérifier le point de terminaison de santé de notre application, nous utiliserons la bibliothèque [RestAssured](http://rest-assured.io/).
 
-However, before using it, we first need to configure it. 
-Add the following to your abstract test class since we will share it between all tests:
+Cependant, avant de l'utiliser, nous devons d'abord le configurer.
+Ajoutez ce qui suit à votre classe de test abstraite puisque nous le partagerons entre tous les tests :
 
 ```java
 protected RequestSpecification requestSpecification;
@@ -31,11 +31,11 @@ void setUpAbstractIntegrationTest() {
 }
 ```
 
-Here we ask Spring Boot to inject the random port it received at the start of the app, so that we can pre-configure RestAssured's requestSpecification.
+Ici, nous demandons à Spring Boot d'injecter le port aléatoire qu'il a reçu au démarrage de l'application, afin que nous puissions préconfigurer la requestSpecification de RestAssured.
 
-## Call the endpoint
+## Appeler le point de terminaison
 
-Now let's check if the app is actually healthy by doing the following in our `DemoApplicationTest`:
+Vérifions maintenant si l'application est réellement saine en effectuant ce qui suit dans notre « DemoApplicationTest » :
 
 ```java
 @Test
@@ -49,7 +49,7 @@ void healthy() {
 }
 ```
 
-If we run the test, it will fail:
+Si nous exécutons le test, il échouera :
 
 ```text
 ...
@@ -80,7 +80,7 @@ Content-Type: application/vnd.spring-boot.actuator.v2+json;charset=UTF-8
 Expected status code <200> but was <503>.
 ```
 
-It seems that it couldn't find Redis and there is no autoconfigurable option for it.
+Il semble qu'il n'ait pas pu trouver Redis et qu'il n'y ait pas d'option autoconfigurable pour cela.
 
 ### 
 [Next](step-6-adding-redis.md)
