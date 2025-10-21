@@ -1,4 +1,4 @@
-# Étape 11 : Utilisation de conteneurs de test pour l'ingénierie du chaos
+# Étape 11 : Utilisation de Testcontainers pour l'ingénierie du chaos
 
 Jusqu'à présent, nous avons testé notre système dans des conditions très prévisibles.
 Mais en réalité, nous savons que des problèmes peuvent survenir.
