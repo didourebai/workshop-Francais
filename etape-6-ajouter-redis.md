@@ -26,4 +26,4 @@ Simple et beau, hein ?
 Exécutez les tests, ils devraient maintenant tous réussir.
 
 ### 
-[Next](etape-7-test-l-api.md)
+[Suivant](etape-7-test-l-api.md)
