@@ -1,31 +1,30 @@
-# Step 7.7: Data initialization strategies
+# Étape 7.7 : Stratégies d'initialisation des données
 
-Initializing data using Spring is neat, but sometimes you might need alternative solutions. 
+L'initialisation des données à l'aide de Spring est intéressante, mais vous pourriez parfois avoir besoin de solutions alternatives.
 
-In this step we're going to turn off the Spring's database initialization, and explore how we can initialize the database using container specific configuration, followed by switching to using the [Flyway](https://flywaydb.org/) migrations.
+Dans cette étape, nous allons désactiver l'initialisation de la base de données Spring et explorer comment nous pouvons initialiser la base de données à l'aide d'une configuration spécifique au conteneur, puis passer à l'utilisation des migrations[Flyway](https://flywaydb.org/).
 
-## Assert the data is really there
+## Affirmer que les données sont réellement là
 
-To make the task run or fail faster, add a testcase to `DemoApplicationTest` which checks that the data from `schema.sql` is loaded into the database properly. 
-For that you can `@Autowire` the `TalksRepository` into the test class and use it to verify that a talk with a given ID can be found in the database. 
+Pour accélérer l'exécution ou l'échec de la tâche, ajoutez un cas de test à « DemoApplicationTest » qui vérifie que les données de « schema.sql » sont correctement chargées dans la base de données.
+Pour cela, vous pouvez « @Autowire » le « TalksRepository » dans la classe de test et l'utiliser pour vérifier qu'une conversation avec un ID donné est bien présente dans la base de données.
 
 ```java
 Assertions.assertTrue(talksRepository.exists("testcontainers-integration-testing"));
 ```
 
-## Running PostgreSQL explicitly
+## Exécution explicite de PostgreSQL
 
-First of all, we'll remove the Testcontainers "modified JDBC URL" approach and create an explicit PostgreSQL container object to simplify further configuration.
+Tout d’abord, nous allons supprimer l’approche « URL JDBC modifiée » de Testcontainers et créer un objet conteneur PostgreSQL explicite pour simplifier la configuration ultérieure.
 
-In the `AbstractIntegratonTest` please remove `properties` from `@SpringBootTest(...)` altogether.
-
-Then you can instantiate a PostgreSQL container using:
+Dans « AbstractIntegratonTest », veuillez supprimer complètement « properties » de « @SpringBootTest(...) ».
+Vous pouvez ensuite instancier un conteneur PostgreSQL en utilisant :
 
 ```java
 static final PostgreSQLContainer<?> postgres = new PostgreSQLContainer<>("postgres:16-alpine");
 ```
 
-Additionally, we need to start `postgres` container similar to the other service dependencies and configure our application to use that containerized database which can be done by setting the following properties in the `@DynamicPropertySource` annotated method:
+De plus, nous devons démarrer le conteneur « postgres » de manière similaire aux autres dépendances de service et configurer notre application pour utiliser cette base de données conteneurisée, ce qui peut être fait en définissant les propriétés suivantes dans la méthode annotée « @DynamicPropertySource » :
 
 ```text
 spring.datasource.url
@@ -33,31 +32,30 @@ spring.datasource.username
 spring.datasource.password
 ```
 
-Use the values provided by the `postgres` object to fill the required configuration.
+Utilisez les valeurs fournies par l'objet « postgres » pour remplir la configuration requise.
 
-Running the test added in the beginning of this Step should pass now. 
+L’exécution du test ajouté au début de cette étape devrait maintenant réussir.
 
-## Initialize the DB without Spring
+## Initialiser la base de données sans Spring
 
-It might happen that loading `schema.sql` is not enough to fully initialize the database. 
-We are going to simulate that by circumventing the Spring's convention. Please rename `schema.sql` to `talks-schema.sql`. 
-The test should fail now since the schema isn't initialized in the database container and without it the app cannot function properly.  
+Il peut arriver que le chargement de `schema.sql` ne suffise pas à initialiser complètement la base de données.
+Nous allons simuler ce problème en contournant la convention Spring. Veuillez renommer `schema.sql` en `talks-schema.sql`.
+Le test devrait échouer, car le schéma n'est pas initialisé dans le conteneur de base de données et, sans lui, l'application ne peut pas fonctionner correctement.
 
-Make the database initialization work again (and the test pass) by initializing the DB directly in the container.
+Faites fonctionner à nouveau l'initialisation de la base de données (et le test réussi) en initialisant la base de données directement dans le conteneur.
 
-### Hint
-Most database containers have functionality to initialize the Database from the script files provided in the container.  
-The PostgreSQL container happens to run all SQL files from `/docker-entrypoint-initdb.d/` directory, as described in the _Initialization scripts_  chapter of the [Postgres container](https://hub.docker.com/_/postgres/) docs.
+### Indice
+La plupart des conteneurs de base de données disposent de fonctionnalités permettant d'initialiser la base de données à partir des fichiers de script fournis dans le conteneur.
+Le conteneur PostgreSQL exécute tous les fichiers SQL du répertoire `/docker-entrypoint-initdb.d/`, , comme décrit dans le chapitre _Initialization scripts_ de la documentation du [Postgres container](https://hub.docker.com/_/postgres/).
 
-Configure the `postgres` object using the `withCopyToContainer` method and `MountableFile.forClasspathResource(String path)` to configure the database schema.
-After you initialize the DB correctly, the test should work again (despite _not_ having the `schema.sql` file).
+Configurez l'objet « postgres » à l'aide de la méthode « withCopyToContainer » et de « MountableFile.forClasspathResource(String path) » pour configurer le schéma de la base de données. Une fois la base de données correctement initialisée, le test devrait fonctionner à nouveau (même si le fichier « schema.sql » n'est pas présent).
 
-## Migrating the DB with Flyway
+## Migration de la base de données avec Flyway
 
-Next, we're going to remove the data initialization queries from the `talks-schema.sql` file and use [Flyway](https://flywaydb.org/) for populating the DB with actual data.
-Liquibase or other database migration tools would work similarly. 
+Ensuite, nous allons supprimer les requêtes d'initialisation des données du fichier « talks-schema.sql » et utiliser [Flyway](https://flywaydb.org/) pour remplir la base de données avec les données réelles.
+Liquibase ou d'autres outils de migration de bases de données fonctionneraient de la même manière.
 
-Please add the Flyway dependency in `build.gradle`:
+Veuillez ajouter la dépendance Flyway dans `build.gradle` :
 
 ```text
 implementation 'org.flywaydb:flyway-core'
@@ -71,23 +69,22 @@ or `pom.xml`:
 </dependency>
 ```
 
-Next, move all the `INSERT ...` statements from the `talks-schema.sql` to `src/main/resources/db/migration/V1_1__talks.sql` file.
+Ensuite, déplacez toutes les instructions `INSERT ...` du fichier `talks-schema.sql` vers le fichier `src/main/resources/db/migration/V1_1__talks.sql`.
 
-Note that the migrations file is not on the **test** classpath, as Flyway is likely to be used for production schema management as well. 
+Notez que le fichier de migrations ne se trouve pas sur le chemin de classe **test**, car Flyway est susceptible d'être également utilisé pour la gestion des schémas de production.
 
-For Flyway not to complain that it can't store its data in the DB, we need to configure it to create its missing database management tables and data.
+Pour que Flyway ne se plaigne pas de ne pas pouvoir stocker ses données dans la base de données, nous devons le configurer pour créer ses tables et données de gestion de base de données manquantes.
 
-This can be done in `application.yml` with:
+Cela peut être fait dans `application.yml` avec :
 
 ```yaml
   flyway:
     baseline-on-migrate: true
 ```
 
-Note that `spring.flyway.locations=classpath:db/migration` is the default location for the migration files used by Flyway so we don't need to configure that explicitly. 
-For more details on Spring Boot and Flyway integration please refer to [Spring manual](https://docs.spring.io/spring-boot/docs/2.6.7/reference/htmlsingle/#howto.data-initialization.migration-tool.flyway).
+Notez que `spring.flyway.locations=classpath:db/migration` est l'emplacement par défaut des fichiers de migration utilisés par Flyway, nous n'avons donc pas besoin de le configurer explicitement.
+Pour plus de détails sur l'intégration de Spring Boot et Flyway, veuillez vous référer à [Spring manual](https://docs.spring.io/spring-boot/docs/2.6.7/reference/htmlsingle/#howto.data-initialization.migration-tool.flyway).
 
-The test verifying that the data is correctly initialized in the Database should pass after we configure Flyway to run the migrations correctly.
-
+Le test vérifiant que les données sont correctement initialisées dans la base de données devrait réussir après avoir configuré Flyway pour exécuter correctement les migrations.
 ### 
-[Next](step-8-local-development-environment.md)
+[Suivant](etape-8-environnement-local-developpement.md)
