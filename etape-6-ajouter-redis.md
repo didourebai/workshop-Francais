@@ -26,4 +26,4 @@ Simple et beau, hein ?
 Exécutez les tests, ils devraient maintenant tous réussir.
 
 ### 
-[Next](step-7-test-the-api.md)
+[Next](etape-6-ajouter-redis.md)
